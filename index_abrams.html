@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Farm to Franchise</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+
+<body>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 jumbotron text-center">
+        <h1>MLB Player Data!</h1>
+        <p>Select from the options below to explore players' stats from 2000-2019 and see when players are in their prime!</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="well">
+          <p>Would you like to look at ...</p>
+          <select id="selDataset" onchange="optionChanged(this.value)"></select>
+        </div>
+      </div>
+        <div class="col-md-6">
+          <div class="well">
+            <p>Look at player stats for...</p>
+            <select id="selPlayer" onchange="optionChanged(this.value)"></select>
+          </div>
+        </div>
+    </div>
+    <div class="row">    
+      <div class="col-md-6">
+        <div id="graph1"></div>
+      </div>
+      <div class="col-md-6">
+        <div id="graph2"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.js"></script>
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  <script src="./static/js/logic.js"></script>
+  
+</body>
+
+</html>
