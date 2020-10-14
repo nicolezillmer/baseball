@@ -1,0 +1,37 @@
+Teams
+-
+Team_ID INTEGER PK
+Team_Name VARCHAR
+Address VARCHAR
+City VARCHAR
+Zipcode VARCHAR
+
+Players
+-
+Player_ID INTEGER PK
+Team_ID INTEGER FK >- Team.Team_ID
+First_Name VARCHAR
+Last_Name VARCHAR
+
+Stats
+-
+Player_ID INTEGER PK
+Team_ID INTEGER FK >- Team.Team_ID
+Other_ID INTEGER FK >- Other.Other_ID
+first_name VARCHAR (25)
+first_name VARCHAR (25)
+age INTEGER
+country_origin VARCHAR (36)
+Stat1_Name VARCHAR
+Stat2_Name VARCHAR
+Stat3_Name VARCHAR
+Stat4_Name VARCHAR
+Stat5_Name VARCHAR
+Stat6_Name VARCHAR
+Stat7_Name VARCHAR
+Stat8_Name VARCHAR
+
+Other
+-
+Other_ID INTEGER PK
+Player_ID INTEGER FK - Players.Player_ID
