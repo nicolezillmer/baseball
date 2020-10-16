@@ -29,7 +29,7 @@
 // Need an event listener for the dropdown
 // optionChanged function
 // - That takes as a parameter the user selection
-/*
+
 function pageBuilder(subject){
 
     d3.json("samples.json").then((data) => {
@@ -48,27 +48,41 @@ function pageBuilder(subject){
   
   
   function init() {
-  
+
+      // Use D3 to select the dropdown menu
+    var dropdownMenu = d3.select("#selOption");
+    // Assign the value of the dropdown menu option to a variable
+    var selection = dropdownMenu.property("value");
+
+    console.log(selection);
+    
     // Fill dropdown with IDs
     // Get firstOne id and call buildPage with that id
-  
-    d3.json("samples.json").then((data) => {
-  
-      var selector = d3.select("#selDataset");
-  
+    
+    
+    d3.json(`/api/${selection}`).then((data) => {
+
+      console.log(data)
+
+    /*
+      var selector = d3.select("#selPlayer");
+    
       data.names.forEach((ids) => {
         selector
           .append("option")
           .text(ids)
           .property("value", ids)
       })
+      */
   
-      firstOne = data.names[0];
+      //firstOne = data.names[0];
   
-      pageBuilder(firstOne);
+      //pageBuilder(firstOne);
+    
   
     })
   }
+
   
   function optionChanged(selection) {
   
@@ -77,5 +91,7 @@ function pageBuilder(subject){
   
   
   init()
+
+  d3.selectAll("#selOption").on("change", init);
   
-  */
+  

@@ -19,7 +19,16 @@
       </div>
     </div>
     <div class="row">
-        <div class="col-md-12">
+      <div class="col-md-6">
+        <div class="well">
+          <p>Would you like to look at ...</p>
+          <select id="selOption">
+            <option value="batters">batters</option>
+            <option value="pitchers">pitchers</option>
+          </select>
+        </div>
+      </div>
+        <div class="col-md-6">
           <div class="well">
             <p>Look at player stats for...</p>
             <select id="selPlayer" onchange="optionChanged(this.value)"></select>
@@ -38,7 +47,7 @@
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.js"></script>
   <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-  <script src="static/js/logic.js"></script>
+  <script src="{{ url_for('static', filename='js/logic.js') }}"></script>
   
 </body>
 

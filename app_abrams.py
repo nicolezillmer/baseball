@@ -1,4 +1,5 @@
 # import necessary libraries
+import json
 import os
 from flask import (
     Flask,
@@ -35,21 +36,23 @@ app = Flask(__name__)
 def home():
     return render_template("index_abrams.html")
 
-'''
-@app.route("/api/<name>")
-def player(name):
 
-    session = Session(engine)
+@app.route("/api/<selection>")
+def data(selection):
 
-    #results = db.session.query(Pet.name, Pet.lat, Pet.lon).all()
-    #results = session.query(Pet.name, Pet.lat, Pet.lon).all()
+    if selection == "batter":
+        battersQuery = "SELECT * from batters"
+        battersDF = battersDF = pd.read_sql_query(battersQuery, engine)
+        result = battersDF.to_json(orient="split")
+        return result
+    elif selection == "pitcher":
+        pitchersQuery = "SELECT * from pitchers"
+        pitchersDF = pitchersDF = pd.read_sql_query(pitchersQuery, engine)
+        result = pitchersDF.to_json(orient="split")
+        return result
+    else:
+        return jsonify ("error")
 
-
-
-    session.close()
-
-    return jsonify()
-'''
 
 @app.route("/about")
 def about():
