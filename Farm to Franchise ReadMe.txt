@@ -1,7 +1,4 @@
-# BCS_Project2
-Player trajectory analysis to project when a player may be in the prime of their career
-
-Farm to Franchise ReadMe
+MLB Player Peaks ReadMe
 
 Getting the data:
 1st issue – there are a number of sites from which to get data
