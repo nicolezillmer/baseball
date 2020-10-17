@@ -64,16 +64,18 @@ function pageBuilder(subject){
 
       console.log(data)
 
-    /*
-      var selector = d3.select("#selPlayer");
     
-      data.names.forEach((ids) => {
+      var selector = d3.select("#selPlayer");
+
+      selector.html("");
+    
+      data.data.forEach((row) => {
         selector
           .append("option")
-          .text(ids)
-          .property("value", ids)
+          .text(row[0])
+          .property("value", row[0])
       })
-      */
+    
   
       //firstOne = data.names[0];
   
