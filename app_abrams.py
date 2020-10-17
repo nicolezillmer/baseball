@@ -11,6 +11,7 @@ from flask import (
 from sqlalchemy.ext.automap import automap_base
 from sqlalchemy import create_engine, inspect, func
 from sqlalchemy.orm import Session
+import pandas as pd
 
 from config import userName, password
 
@@ -40,12 +41,12 @@ def home():
 @app.route("/api/<selection>")
 def data(selection):
 
-    if selection == "batter":
+    if selection == "batters":
         battersQuery = "SELECT * from batters"
         battersDF = battersDF = pd.read_sql_query(battersQuery, engine)
         result = battersDF.to_json(orient="split")
         return result
-    elif selection == "pitcher":
+    elif selection == "pitchers":
         pitchersQuery = "SELECT * from pitchers"
         pitchersDF = pitchersDF = pd.read_sql_query(pitchersQuery, engine)
         result = pitchersDF.to_json(orient="split")
