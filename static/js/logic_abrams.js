@@ -17,10 +17,10 @@ function lineChartBuilder(player){
 
     d3.json(`/api/${selection}`).then((data) => {
   
-      console.log(player);
+      //console.log(player);
   
       // Filter data.samples based on subject
-      filteredData = data.data.filter(row => row[0] == player);
+      filteredData = data.data.filter(row => row[1] == player);
   
       // The array that you get back you are interested in [0]
       playerData = filteredData[0]
@@ -56,12 +56,12 @@ function lineChartBuilder(player){
       data.data.forEach((row) => {
         selector
           .append("option")
-          .text(row[0])
-          .property("value", row[0])
+          .text(row[1])
+          .property("value", row[1])
       })
     
   
-      firstOne = data.data[0][0];
+      firstOne = data.data[0][1];
 
       console.log(firstOne);
   
