@@ -54,6 +54,23 @@ def data(selection):
     else:
         return jsonify ("error")
 
+@app.route("/api/era")
+def era():
+
+    eraQuery = "SELECT * from pitching_country_era"
+    eraDF = pd.read_sql_query(eraQuery, engine)
+    result = eraDF.to_json(orient = "split")
+
+    return result
+
+@app.route("/api/whip")
+def whip():
+
+    whipQuery = "SELECT * from pitching_country_whip"
+    whipDF = pd.read_sql_query(whipQuery, engine)
+    result = whipDF.to_json(orient = "split")
+
+    return result
 
 @app.route("/about")
 def about():
