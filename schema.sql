@@ -25,13 +25,13 @@ CREATE TABLE batters (
     MLBMID NUMERIC,
     FirstName VARCHAR(30),
     LastName VARCHAR(30),
-    BirthDate TIMESTAMP,
+    BirthDate VARCHAR(30),
     Team VARCHAR(30),
     Jersey NUMERIC,
     BirthCity VARCHAR(30),
     BirthState VARCHAR(30),
     BirthCountry VARCHAR(30),
-    ProDebut TIMESTAMP
+    ProDebut VARCHAR(30)
 );
 
 DROP TABLE IF EXISTS pitchers;
@@ -81,11 +81,151 @@ CREATE TABLE pitchers(
     MLBMID NUMERIC,
     FirstName VARCHAR(30),
     LastName VARCHAR(30),
-    BirthDate TIMESTAMP,
+    BirthDate VARCHAR(30),
     Team VARCHAR(30),
     Jersey NUMERIC,
     BirthCity VARCHAR(30),
     BirthState VARCHAR(30),
     BirthCountry VARCHAR(30),
-    ProDebut TIMESTAMP
+    ProDebut VARCHAR(30)
+);
+
+DROP TABLE IF EXISTS batting_country_age;
+
+Create TABLE batting_country_age(
+    index INTEGER,
+    PLAYER VARCHAR(30),
+    BirthCountry VARCHAR(30),
+    AGE00 NUMERIC,
+    AGE01 NUMERIC,
+    AGE02 NUMERIC,
+    AGE03 NUMERIC,
+    AGE04 NUMERIC,
+    AGE05 NUMERIC,
+    AGE06 NUMERIC,
+    AGE07 NUMERIC,
+    AGE08 NUMERIC,
+    AGE09 NUMERIC,
+    AGE10 NUMERIC,
+    AGE11 NUMERIC,
+    AGE12 NUMERIC,
+    AGE13 NUMERIC,
+    AGE14 NUMERIC,
+    AGE15 NUMERIC,
+    AGE16 NUMERIC,
+    AGE17 NUMERIC,
+    AGE18 NUMERIC,
+    AGE19 NUMERIC
+);
+
+DROP TABLE IF EXISTS batting_country_ba;
+
+CREATE TABLE batting_country_ba(
+    index INTEGER,
+    PLAYER VARCHAR(30),
+    BA00 NUMERIC,
+    BA01 NUMERIC,
+    BA02 NUMERIC,
+    BA03 NUMERIC,
+    BA04 NUMERIC,
+    BA05 NUMERIC,
+    BA06 NUMERIC,
+    BA07 NUMERIC,
+    BA08 NUMERIC,
+    BA09 NUMERIC,
+    BA10 NUMERIC,
+    BA11 NUMERIC,
+    BA12 NUMERIC,
+    BA13 NUMERIC,
+    BA14 NUMERIC,
+    BA15 NUMERIC,
+    BA16 NUMERIC,
+    BA17 NUMERIC,
+    BA18 NUMERIC,
+    BA19 NUMERIC,
+    BirthCountry VARCHAR(30)
+);
+
+DROP TABLE IF EXISTS pitching_country_age;
+
+Create TABLE pitching_country_age(
+    index INTEGER,
+    PLAYER VARCHAR(30),
+    BirthCountry VARCHAR(30),
+    AGE00 NUMERIC,
+    AGE01 NUMERIC,
+    AGE02 NUMERIC,
+    AGE03 NUMERIC,
+    AGE04 NUMERIC,
+    AGE05 NUMERIC,
+    AGE06 NUMERIC,
+    AGE07 NUMERIC,
+    AGE08 NUMERIC,
+    AGE09 NUMERIC,
+    AGE10 NUMERIC,
+    AGE11 NUMERIC,
+    AGE12 NUMERIC,
+    AGE13 NUMERIC,
+    AGE14 NUMERIC,
+    AGE15 NUMERIC,
+    AGE16 NUMERIC,
+    AGE17 NUMERIC,
+    AGE18 NUMERIC,
+    AGE19 NUMERIC
+);
+
+DROP TABLE IF EXISTS pitching_country_era;
+
+CREATE TABLE pitching_country_era(
+    index INTEGER,
+    PLAYER VARCHAR(30),
+    ERA00 NUMERIC,
+    ERA01 NUMERIC,
+    ERA02 NUMERIC,
+    ERA03 NUMERIC,
+    ERA04 NUMERIC,
+    ERA05 NUMERIC,
+    ERA06 NUMERIC,
+    ERA07 NUMERIC,
+    ERA08 NUMERIC,
+    ERA09 NUMERIC,
+    ERA10 NUMERIC,
+    ERA11 NUMERIC,
+    ERA12 NUMERIC,
+    ERA13 NUMERIC,
+    ERA14 NUMERIC,
+    ERA15 NUMERIC,
+    ERA16 NUMERIC,
+    ERA17 NUMERIC,
+    ERA18 NUMERIC,
+    ERA19 NUMERIC,
+    BirthCountry VARCHAR(30)
+);
+
+DROP TABLE IF EXISTS pitching_country_whip;
+
+CREATE TABLE pitching_country_whip(
+    index INTEGER,
+    PLAYER VARCHAR(30),
+    whip00 NUMERIC,
+    whip01 NUMERIC,
+    whip02 NUMERIC,
+    whip03 NUMERIC,
+    whip04 NUMERIC,
+    whip05 NUMERIC,
+    whip06 NUMERIC,
+    whip07 NUMERIC,
+    whip08 NUMERIC,
+    whip09 NUMERIC,
+    whip10 NUMERIC,
+    whip11 NUMERIC,
+    whip12 NUMERIC,
+    whip13 NUMERIC,
+    whip14 NUMERIC,
+    whip15 NUMERIC,
+    whip16 NUMERIC,
+    whip18 NUMERIC,
+    whip17 NUMERIC,
+    whip19 NUMERIC,
+    BirthCountry VARCHAR(30)
 );
