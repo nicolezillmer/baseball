@@ -13,10 +13,10 @@ from sqlalchemy import create_engine, inspect, func
 from sqlalchemy.orm import Session
 import pandas as pd
 
-from config import userName, password
+#from config import userName, password
 
-#engine = create_engine(os.environ.get('DATABASE_URL', ''))
-engine = create_engine(f'postgresql://{userName}:{password}@localhost:5432/baseball')
+engine = create_engine(os.environ.get('https://nzproject.herokuapp.com', ''))
+#engine = create_engine(f'postgresql://{userName}:{password}@localhost:5432/baseball')
 
 
 Base = automap_base()
