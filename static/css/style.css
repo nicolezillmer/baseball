@@ -20,6 +20,12 @@ h2{
     text-align:right;
 }
 
+.background-image{
+padding-top:8in;
+padding-left:5in;
+padding-right: 5in;
+}
+
 h3 {
     border: 2px;
     color: red;

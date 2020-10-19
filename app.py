@@ -1,3 +1,4 @@
+
 # import necessary libraries
 import json
 import os
@@ -18,7 +19,6 @@ import pandas as pd
 
 engine = create_engine('postgres://jhrqcslvcarqyy:519d2c118396fd3600cfeb0d7857ec8f106960e2ec1ec86cc5960e4daec6ff12@ec2-52-203-165-126.compute-1.amazonaws.com:5432/d2debj6f2p02g6')
 
-
 Base = automap_base()
 Base.prepare(engine, reflect=True)
 
@@ -31,12 +31,10 @@ inspector.get_table_names()
 #################################################
 app = Flask(__name__)
 
-
 # create route that renders index.html template
 @app.route("/")
 def home():
     return render_template("index_dlf.html")
-
 
 @app.route("/api/<selection>")
 def data(selection):
@@ -85,3 +83,4 @@ def contact():
 
 if __name__ == "__main__":
     app.run(debug=True)
+

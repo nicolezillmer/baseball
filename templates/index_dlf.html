@@ -36,6 +36,10 @@
           left: 0px;
           font-size:x-larger;          
     }
+    .responsive {
+      max-width: 100%;
+      height: auto;
+    }
     
   </style>  
 </head>
@@ -53,13 +57,17 @@
        </div>
     </div>
 
-    <div id = "container1">
-     <style>
-        body {
-           background-image: url("../static/images/GreyBaseballDiamond150.jpg");
-        }
-     </style>  
-        <div id="container2">
+    <div id = "container1"class="responsive">
+      <div class= "row"> 
+        <div class= "col-md-12">
+          <style>
+            body {
+            background-image: url("../static/images/GreyBaseballDiamond150.jpg");
+          }
+          </style> 
+        </div> 
+      </div>
+        <div id="container2"class="responsive">
         <!--All of the content for dropdown selector, chart of user choice data-->
         <h1>Farm To Franchise Analysis Tool</h1>
         <p>This tool is designed to help you make profitable decisions. By analyzing each player's 
