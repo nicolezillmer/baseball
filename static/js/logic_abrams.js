@@ -54,6 +54,11 @@ function lineChartBuilder(player){
   
     })
 
+    function scatterBuilder(player){
+
+    };
+    
+
     } else if (selection == "pitchers"){
 
       //GET ERA DATA
@@ -77,21 +82,25 @@ function lineChartBuilder(player){
         var eraData = [eraTrace]
           
         var eraLayout = {
-          title : "Era Data"
+          title : "ERA Data",
+          yaxis : {
+            autorange : false,
+            range : [0,10],
+            type : 'linear'
+          }
         };
 
         Plotly.newPlot("graph1", eraData, eraLayout);
       });
-      
+
+
       
       d3.json("/api/country_whip").then((data) => {
 
           // Filter data.data based on player
           filteredWHIPData = data.data.filter(row => row[1] == player);
           // The array that you get back you are interested in [0]
-          playerWHIPData = filteredWHIPData[0]
-          
-          //console.log(playerERAData)
+          playerWHIPData = filteredWHIPData[0];
 
           x = [2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019];
           whip = playerWHIPData.slice(2,21);
@@ -105,7 +114,12 @@ function lineChartBuilder(player){
           var whipData = [whipTrace]
             
           var whipLayout = {
-            title : "WHIP Data"
+            title : "WHIP Data",
+            yaxis : {
+              autorange : false,
+              range : [0,200],
+              type : 'linear'
+            }
           };
   
           Plotly.newPlot("graph2", whipData, whipLayout);
