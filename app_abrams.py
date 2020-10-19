@@ -54,7 +54,7 @@ def data(selection):
     else:
         return jsonify ("error")
 
-@app.route("/api/era")
+@app.route("/api/country_era")
 def era():
 
     eraQuery = "SELECT * from pitching_country_era"
@@ -63,7 +63,7 @@ def era():
 
     return result
 
-@app.route("/api/whip")
+@app.route("/api/country_whip")
 def whip():
 
     whipQuery = "SELECT * from pitching_country_whip"
@@ -71,17 +71,6 @@ def whip():
     result = whipDF.to_json(orient = "split")
 
     return result
-
-@app.route("/about")
-def about():
-       name = "Farm To Franchise, LLC"
-       location = "Arizona"
-       return f"We are {name} and we are located in - It’s a dry heat, {location}!"
-
-@app.route("/contact")
-def contact():
-        Email = contact@FarmToFranchise.com
-        return f'Questions, Comments, Complaings? Send and email to {email}. Thanks!'
 
 if __name__ == "__main__":
     app.run(debug=True)

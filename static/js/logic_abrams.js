@@ -26,24 +26,29 @@ function lineChartBuilder(player){
       // The array that you get back you are interested in [0]
       playerData = filteredData[0]
 
-      console.log(playerData)
+      //console.log(playerData)
 
       x = [2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019]
       y = playerData.slice(2,24)
 
-      var trace1 = {
+      var batTrace = {
         x : x,
         y : y,
         type : "line"
       };
 
-      var data1 = [trace1]
+      var batData = [batTrace]
 
-      var layout1 = {
-        title : "Batting Average"
+      var batLayout = {
+        title : "Batting Average",
+        yaxis : {
+          autorange : false,
+          range : [0,.400],
+          type : 'linear'
+        }
       };
 
-      Plotly.newPlot("graph1", data1, layout1);
+      Plotly.newPlot("graph1", batData, batLayout);
       Plotly.purge("graph2");
   
   
@@ -52,7 +57,7 @@ function lineChartBuilder(player){
     } else if (selection == "pitchers"){
 
       //GET ERA DATA
-      d3.json("/api/era").then((data) => {
+      d3.json("/api/country_era").then((data) => {
 
           // Filter data.data based on player
         filteredData = data.data.filter(row => row[1] == player);
@@ -79,7 +84,7 @@ function lineChartBuilder(player){
       });
       
       
-      d3.json("/api/whip").then((data) => {
+      d3.json("/api/country_whip").then((data) => {
 
           // Filter data.data based on player
           filteredWHIPData = data.data.filter(row => row[1] == player);
