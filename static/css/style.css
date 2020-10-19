@@ -15,6 +15,11 @@ h2{
     padding: 30px;
 }
 
+.jumbotron h1{
+    color: #fff;
+    text-align:right;
+}
+
 h3 {
     border: 2px;
     color: red;
