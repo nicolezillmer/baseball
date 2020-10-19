@@ -1,4 +1,4 @@
-MLB Player Peaks ReadMe
+Farm to Franchise ReadMe
 
 Getting the data:
 1st issue – there are a number of sites from which to get data
