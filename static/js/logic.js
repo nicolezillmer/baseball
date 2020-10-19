@@ -1,7 +1,12 @@
-//init function- near bottom
+//init function
+
 //fill out dropdown with pitching and batting
+
 //fill out dropdown with player names based on selection
+
 //calls pagebuilder function that draws the charts
+
+
 
 function lineChartBuilder(player){
 
@@ -12,44 +17,56 @@ function lineChartBuilder(player){
 
   if (selection == 'batters'){
     d3.json(`/api/${selection}`).then((data) => {
-    //console.log(player);
+
+    
 
     // Filter data.data based on player
     filteredData = data.data.filter(row => row[1] == player);
 
     // The array that you get back you are interested in [0]
     playerData = filteredData[0]
-    console.log(playerData)
+
+    
 
     x = [2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019]
     y = playerData.slice(2,24)
 
-    var trace1 = {
+    var batTrace = {
       x : x,
       y : y,
       type : "line"
     };
 
-    var data1 = [trace1]
+    var batData = [batTrace]
 
-    var layout1 = {
-      title : "Batting Average"
+    var batLayout = {
+      title : "Batting Average",
+      yaxis : {
+        autorange : false,
+        range : [0,.400],
+        type : 'linear'
+      }
     };
 
-    Plotly.newPlot("graph1", data1, layout1);
+    Plotly.newPlot("graph1", batData, batLayout);
     Plotly.purge("graph2");
+
+
   })
+
+  
+  
 
   } else if (selection == "pitchers"){
 
     //GET ERA DATA
     d3.json("/api/era").then((data) => {
-
+    
         // Filter data.data based on player
       filteredData = data.data.filter(row => row[1] == player);
       // The array that you get back you are interested in [0]
       playerData = filteredData[0]
-      console.log(playerData)
+      
 
       x = [2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019]
       era = playerData.slice(2,21)
@@ -63,20 +80,26 @@ function lineChartBuilder(player){
       var eraData = [eraTrace]
         
       var eraLayout = {
-        title : "Era Data"
+        title : "ERA Data",
+        yaxis : {
+          autorange : false,
+          range : [0,10],
+          type : 'linear'
+        }
       };
 
       Plotly.newPlot("graph1", eraData, eraLayout);
     });
+
+
     
-  
     d3.json("/api/whip").then((data) => {
 
         // Filter data.data based on player
         filteredWHIPData = data.data.filter(row => row[1] == player);
         // The array that you get back you are interested in [0]
-        playerWHIPData = filteredWHIPData[0]
-        //console.log(playerERAData)
+        playerWHIPData = filteredWHIPData[0];
+
         x = [2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019];
         whip = playerWHIPData.slice(2,21);
 
@@ -85,21 +108,36 @@ function lineChartBuilder(player){
           y : whip,
           type : "line"
         };
+
         var whipData = [whipTrace]
           
         var whipLayout = {
-          title : "WHIP Data"
+          title : "WHIP Data",
+          yaxis : {
+            autorange : false,
+            range : [0,200],
+            type : 'linear'
+          }
         };
+
         Plotly.newPlot("graph2", whipData, whipLayout);
+
+
     });
+
+
+
+
+    
 
   };
 
   
 }
 
-function init() {
 
+function init() {
+console.log("hello")
     // Use D3 to select the dropdown menu
   var dropdownMenu = d3.select("#selOption");
   // Assign the value of the dropdown menu option to a variable
