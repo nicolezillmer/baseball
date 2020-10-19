@@ -81,7 +81,7 @@ def about():
 @app.route("/contact")
 def contact():
         Email = contact@FarmToFranchise.com
-        return f'Questions, Comments, Complaings? Send and email to {email}. Thanks!'
+        return f'Questions, Comments, Complaints? Send and email to {email}. Thanks!'
 
 if __name__ == "__main__":
     app.run(debug=True)
