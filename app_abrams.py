@@ -72,5 +72,32 @@ def whip():
 
     return result
 
+@app.route("/api/pitching_country_age")
+def pitching_age():
+
+    pitchAgeQuery = "SELECT * from pitching_country_age"
+    pitchAgeDF = pd.read_sql_query(pitchAgeQuery, engine)
+    result = pitchAgeDF.to_json(orient = "split")
+
+    return result
+
+@app.route("/api/batting_country_age")
+def batting_age():
+
+    battAgeQuery = "SELECT * from batting_country_age"
+    battAgeDF = pd.read_sql_query(battAgeQuery, engine)
+    result = battAgeDF.to_json(orient = "split")
+
+    return result
+
+@app.route("/api/batting_country_ba")
+def batting_country():
+
+    battQuery = "SELECT * from batting_country_ba"
+    battDF = pd.read_sql_query(battQuery, engine)
+    result = battDF.to_json(orient = "split")
+
+    return result
+
 if __name__ == "__main__":
     app.run(debug=True)
